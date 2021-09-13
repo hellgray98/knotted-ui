@@ -1,0 +1,322 @@
+header {
+    position: relative;
+}
+
+
+
+
+#toggle-menu {
+    span {
+        cursor: pointer;
+    }
+
+    position: absolute;
+    transition: all ease-in 0.3s;
+    top: 50%;
+    left: 20px;
+    width: 30px;
+
+    @include respond-toSP(1025) {
+        display: none;
+    }
+
+    span {
+        margin-bottom: 15px;
+    }
+
+    span:nth-child(1) {
+        transition: all 0.3s;
+        width: 30px;
+        border-bottom: 4px solid $primary-color;
+        position: absolute;
+        left: 0;
+        transition: all ease-in 0.3s;
+    }
+
+    span:nth-child(2) {
+        transition: all ease-in 0.3s;
+        width: 30px;
+        border-bottom: 4px solid $primary-color;
+        position: absolute;
+        left: 0;
+        top: -5px
+    }
+
+    span:nth-child(3) {
+        transition: all ease-in 0.3s;
+        width: 30px;
+        border-bottom: 4px solid $primary-color;
+        position: absolute;
+        left: 0;
+        top: -10px
+    }
+}
+
+.active {
+    position: relative;
+    transition: all ease-in 0.3s;
+
+
+    span:nth-child(1) {
+        transition: all ease-in 0.3s;
+        width: 30px;
+        border-bottom: 4px solid $primary-color;
+        position: absolute;
+        left: 0;
+        top: -5px;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    span:nth-child(2) {
+        display: none;
+    }
+
+    span:nth-child(3) {
+        transition: all ease-in 0.3s;
+        width: 30px;
+        border-bottom: 4px solid $primary-color;
+        position: absolute;
+        left: 2px;
+        top: -5px !important;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
+
+
+
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid $primary-color;
+    background-color: $light-color;
+    align-items: center;
+    // overflow: hidden;
+
+    .area{
+        a{
+        color: $primary-color;
+        text-decoration: none;
+        padding: 0;
+        }
+         
+        img{
+            width: 500px;
+            @include respond-to(768){
+                width: 250px;
+            }
+        }
+    }
+  
+    .logo {
+
+        z-index: 1000;
+
+        @include respond-to(1024) {
+            display: none;
+        }
+
+        a {
+            cursor: pointer;
+            text-decoration: none;
+
+            color: $text-color;
+            transform: translate(50%, 50%);
+
+        }
+    }
+
+    h1 {
+        width: 100%;
+        font-size: 60px;
+       // padding: 30px 0;
+        text-align: center;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: $primary-color;
+
+        @include respond-to(768) {
+            font-size: 30px;
+
+        }
+    }
+}
+
+
+
+.nav {
+    transition: all ease-out 0.3s;
+    position: relative;
+    clear: both;
+    text-align: center;
+    width: 100%;
+    background: #fffbf2;
+
+
+    @include respond-to(1024) {
+        position: absolute;
+        visibility: hidden;
+        z-index: 1000;
+        width: 100%;
+        opacity: 0;
+    }
+
+    &>ul {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background-color: #fffbf2;
+        padding: 0 10px;
+        border-bottom: 1px solid $primary-color;
+
+
+        & .left,
+        .center {
+            float: left;
+            width: 33%;
+            margin: 0;
+
+            @include respond-to(1024) {
+                width: 100%;
+
+            }
+
+        }
+
+        .right {
+            float: right;
+            width: 34%;
+            margin: 0;
+
+            @include respond-to(1024) {
+                width: 100%;
+
+            }
+
+        }
+
+        .left .item-child {
+            justify-content: flex-start;
+
+        }
+
+        .right .item-child {
+            justify-content: flex-end;
+
+            @include respond-to(1024) {
+                justify-content: flex-start;
+            }
+        }
+
+        .center .item-child {
+
+            @include respond-to(1024) {
+                justify-content: flex-start;
+            }
+        }
+
+        .item-child {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // flex-wrap: wrap;
+
+            li {
+                position: relative;
+                padding: 25px 10px;
+                font-size: 16px;
+
+                letter-spacing: 1.2px;
+                margin: 0;
+
+                @include respond-to(1024) {
+                    padding: 10px 20px;
+                    font-size: 14px;
+                }
+
+                @include respond-to(600) {
+
+                    font-size: 14px;
+                }
+
+                &:hover {
+                    font-style: italic;
+                }
+
+                a {
+                    transition: all ease 0.3s;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: $primary-color;
+
+                    &:hover {
+                        transition: all ease 0.3s;
+                        text-decoration: none;
+                        //  transform: scale(1.5px);
+                        color: $dark-color;
+                    }
+                }
+
+            }
+        }
+
+        .center {
+            li {
+                position: relative;
+
+                &::after {
+                    content: "|";
+                    position: absolute;
+                    right: -5px;
+
+                }
+
+                &:last-child::after {
+                    content: '';
+
+                }
+            }
+        }
+
+    }
+
+}
+
+.show {
+    @include respond-to(1024) {
+        transition: all ease-out 0.3s;
+        opacity: 1;
+        visibility: unset;
+
+    }
+}
+
+.sticky {
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+
+    @include respond-to(1024) {
+        position: fixed;
+    }
+
+    transition: all 0.3s;
+
+    h1 {
+        font-size: 2.5em !important;
+       // padding: 15px 0;
+       img{
+           width: 350px !important;
+       }
+    }
+}
